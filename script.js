@@ -4,7 +4,7 @@ const scenes = [
     title: "Куда утекают твои деньги?",
     text:
       "Давай начистоту. Ты делаешь крутой продукт, ведешь проекты, но почему-то к вечеру чувствуешь себя выжатым лимоном, а доход уперся в потолок. Предлагаю сыграть в детектива. Мы пройдем по твоему обычному рабочему дню и найдем дыры, через которые прямо сейчас утекают твои деньги и время.",
-    image: "images/placeholder-hook.svg",
+    image: "images/scene.png",
     choices: [
       {
         label: "🔍 Найти мои деньги",
@@ -17,7 +17,8 @@ const scenes = [
     title: "Место преступления: Директ",
     text:
       "Среда, 14:00. В директ падает долгожданное сообщение: «А сколько стоит работа с вами? Можно подробности?». Твои действия?",
-    image: "images/placeholder-1.svg",
+    image: "images/scene1.png",
+    intermissionImage: "images/images1-1.jpg",
     choices: [
       {
         label: "Бросаю всё и наговариваю голосовые",
@@ -40,7 +41,8 @@ const scenes = [
     kicker: "",
     title: "Место преступления: Пустой экран",
     text: "Пятница. Надо выложить пост и прогрев в канал. Ты открываешь пустой экран...",
-    image: "images/placeholder-2.svg",
+    image: "images/scene2.png",
+    intermissionImage: "images/images2-2.png",
     choices: [
       {
         label: "Вымучиваю текст 3 часа, переписывая каждое слово",
@@ -58,7 +60,8 @@ const scenes = [
     kicker: "",
     title: "Место преступления: Иллюзия делегирования",
     text: "О чудо, клиент перевел деньги! Что происходит дальше? Как устроен онбординг?",
-    image: "images/placeholder-3.svg",
+    image: "images/scene3.png",
+    intermissionImage: "images/images3-3.jpeg",
     choices: [
       {
         label: "Ручками добавляю в чаты, кидаю доступы и чеки",
@@ -77,7 +80,7 @@ const scenes = [
     title: "Дело закрыто",
     text:
       "Твой диагноз — острая нехватка вайб-кодинга. Ты пытаешься быть человеком-оркестром там, где давно пора поставить умную систему. Вайб-кодинг — это когда ты общаешься со своим бизнесом на человеческом языке, а я собираю тебе под капотом экосистему из ИИ-агентов. Бот сам продает и выдает доступы, а нейросети генерируют контент в твоем авторском стиле. Я забираю рутину на себя и возвращаю тебе время на жизнь и масштабирование.",
-    image: "images/placeholder-verdict.svg",
+    image: "images/scene4(a).jpeg",
     choices: [
       {
         label: "⚡️ Завайбкодить свой бизнес",
@@ -90,12 +93,14 @@ const scenes = [
 ];
 
 const imageEl = document.getElementById("sceneImage");
+const mediaWrapEl = document.getElementById("sceneMedia");
 const kickerEl = document.getElementById("sceneKicker");
 const titleEl = document.getElementById("sceneTitle");
 const textEl = document.getElementById("sceneText");
 const choicesEl = document.getElementById("choices");
 const sceneLayerEl = document.getElementById("sceneContent");
 const intermissionEl = document.getElementById("intermission");
+const intermissionBgEl = document.getElementById("intermissionBg");
 const intermissionTextEl = document.getElementById("intermissionText");
 
 let current = 0;
@@ -136,13 +141,13 @@ function setChoicesDisabled(disabled) {
 
 function goToNextSceneWithoutIntermission() {
   sceneLayerEl.classList.add("fade-out");
-  imageEl.classList.add("fade-out");
+  mediaWrapEl.classList.add("fade-out");
 
   setTimeout(() => {
     current += 1;
     setScene(current);
     sceneLayerEl.classList.remove("fade-out");
-    imageEl.classList.remove("fade-out");
+    mediaWrapEl.classList.remove("fade-out");
     isTransitioning = false;
   }, FADE_MS);
 }
@@ -168,10 +173,16 @@ function handleChoice(choice) {
   setChoicesDisabled(true);
 
   sceneLayerEl.classList.add("fade-out");
-  imageEl.classList.add("fade-out");
+  mediaWrapEl.classList.add("fade-out");
 
   setTimeout(() => {
+    const scene = scenes[current];
+    if (scene.intermissionImage) {
+      intermissionBgEl.src = scene.intermissionImage;
+    }
     intermissionTextEl.textContent = choice.consequence;
+    document.body.classList.add("intermission-active");
+    intermissionEl.setAttribute("aria-hidden", "false");
     intermissionEl.classList.add("fade-in");
     intermissionEl.classList.remove("fade-out");
   }, FADE_MS);
@@ -189,10 +200,13 @@ function handleChoice(choice) {
     setScene(current);
 
     sceneLayerEl.classList.remove("fade-out");
-    imageEl.classList.remove("fade-out");
+    mediaWrapEl.classList.remove("fade-out");
     intermissionEl.classList.remove("fade-out");
     intermissionEl.classList.remove("fade-in");
     intermissionTextEl.textContent = "";
+    intermissionBgEl.removeAttribute("src");
+    intermissionEl.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("intermission-active");
     isTransitioning = false;
   }, FADE_MS + INTERMISSION_MS + FADE_MS);
 }

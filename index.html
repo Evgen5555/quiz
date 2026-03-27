@@ -17,28 +17,41 @@
 
     <main class="stage">
       <article id="sceneCard" class="editorial-card">
-        <figure class="media-wrap">
-          <img id="sceneImage" src="images/placeholder-hook.svg" alt="" />
+        <figure id="sceneMedia" class="media-wrap">
+          <img id="sceneImage" src="images/scene.png" alt="" />
         </figure>
 
-        <section id="sceneContent" class="content scene-layer">
-          <p id="sceneKicker" class="kicker">Крючок</p>
-          <h1 id="sceneTitle">Куда утекают твои деньги?</h1>
-          <p id="sceneText" class="copy">
-            Давай начистоту. Ты делаешь крутой продукт, ведешь проекты, но почему-то к вечеру
-            чувствуешь себя выжатым лимоном, а доход уперся в потолок. Предлагаю сыграть в
-            детектива. Мы пройдем по твоему обычному рабочему дню и найдем дыры, через которые
-            прямо сейчас утекают твои деньги и время.
-          </p>
-          <div id="choices" class="choices" aria-label="Варианты действий"></div>
-        </section>
-
-        <section id="intermission" class="content intermission-layer" aria-live="polite">
-          <p class="intermission-kicker">Следствие установило:</p>
-          <p id="intermissionText" class="intermission-text"></p>
-        </section>
+        <div class="copy-column">
+          <section id="sceneContent" class="content scene-layer">
+            <p id="sceneKicker" class="kicker"></p>
+            <h1 id="sceneTitle">Куда утекают твои деньги?</h1>
+            <p id="sceneText" class="copy">
+              Давай начистоту. Ты делаешь крутой продукт, ведешь проекты, но почему-то к вечеру
+              чувствуешь себя выжатым лимоном, а доход уперся в потолок. Предлагаю сыграть в
+              детектива. Мы пройдем по твоему обычному рабочему дню и найдем дыры, через которые
+              прямо сейчас утекают твои деньги и время.
+            </p>
+            <div id="choices" class="choices" aria-label="Варианты действий"></div>
+          </section>
+        </div>
       </article>
     </main>
+
+    <div
+      id="intermission"
+      class="intermission-fullscreen"
+      aria-hidden="true"
+      aria-live="polite"
+    >
+      <div class="intermission-fullscreen__media">
+        <img id="intermissionBg" src="" alt="" />
+        <div class="intermission-fullscreen__scrim" aria-hidden="true"></div>
+      </div>
+      <div class="intermission-fullscreen__inner">
+        <p class="intermission-kicker">Следствие установило:</p>
+        <p id="intermissionText" class="intermission-text"></p>
+      </div>
+    </div>
 
     <p class="site-footer">AI Research &amp; Engineering</p>
 
