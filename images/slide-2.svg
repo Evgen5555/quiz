@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#07090f" />
+      <stop offset="100%" stop-color="#0f1628" />
+    </linearGradient>
+    <radialGradient id="haloBlue" cx="58%" cy="42%" r="52%">
+      <stop offset="0%" stop-color="#2f7dff" stop-opacity="0.78" />
+      <stop offset="100%" stop-color="#2f7dff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="haloGold" cx="20%" cy="82%" r="38%">
+      <stop offset="0%" stop-color="#f3cc7a" stop-opacity="0.72" />
+      <stop offset="100%" stop-color="#f3cc7a" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1400" fill="url(#bg2)" />
+  <circle cx="690" cy="560" r="500" fill="url(#haloBlue)" />
+  <circle cx="250" cy="1140" r="340" fill="url(#haloGold)" />
+  <path d="M250 220H950V1180H250Z" fill="#0a1020" fill-opacity="0.55" />
+  <path d="M340 310H860V1090H340Z" fill="#101936" fill-opacity="0.4" />
+  <path d="M450 380C560 320 740 330 820 440C900 550 870 730 770 840C670 950 500 960 410 880C320 800 300 640 350 520C370 470 400 420 450 380Z" fill="#f3cc7a" fill-opacity="0.11" />
+</svg>
