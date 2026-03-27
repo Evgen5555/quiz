@@ -22,13 +22,14 @@ body {
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   color: var(--text-main);
   background:
     radial-gradient(circle at 15% 20%, rgba(243, 204, 122, 0.12), transparent 45%),
     radial-gradient(circle at 80% 75%, rgba(47, 125, 255, 0.16), transparent 48%),
     linear-gradient(145deg, var(--bg-base), var(--bg-alt) 45%, #07080b);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .backdrop {
@@ -46,7 +47,7 @@ body {
   min-height: 100%;
   display: grid;
   place-items: center;
-  padding: 1.25rem;
+  padding: 1.25rem 1.25rem 3rem;
 }
 
 .editorial-card {
@@ -73,7 +74,7 @@ body {
   border-radius: 22px;
   overflow: hidden;
   border: 1px solid rgba(243, 204, 122, 0.2);
-  background: rgba(6, 8, 14, 0.75);
+  background: rgba(30, 33, 40, 0.9);
 }
 
 .media-wrap img {
@@ -81,12 +82,11 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(1.05) contrast(1.04);
 }
 
 .content {
   padding: 0.5rem 0.4rem;
-  max-width: 35ch;
+  max-width: 38ch;
   position: relative;
 }
 
@@ -100,17 +100,18 @@ body {
 
 h1 {
   margin: 0 0 1rem;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  line-height: 0.95;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1.65rem, 4.2vw, 2.75rem);
+  line-height: 1.08;
   font-weight: 600;
+  letter-spacing: -0.02em;
   color: #fffdf8;
 }
 
 .copy {
   margin: 0;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
   font-size: clamp(0.96rem, 2.1vw, 1.08rem);
 }
 
@@ -130,6 +131,7 @@ h1 {
   padding: 0.78rem 1rem;
   font-size: 0.95rem;
   letter-spacing: 0.01em;
+  font-family: inherit;
   cursor: pointer;
   transition:
     border-color 700ms ease,
@@ -140,9 +142,9 @@ h1 {
 
 .choice-btn--cta {
   margin-top: 0.3rem;
-  padding: 1rem 1.2rem;
+  padding: 1.05rem 1.25rem;
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 600;
   border-color: rgba(243, 204, 122, 0.62);
   color: #fff6e2;
   background: linear-gradient(
@@ -164,6 +166,14 @@ h1 {
   transform: translateY(-1px);
 }
 
+.choice-btn--cta:hover {
+  background: linear-gradient(
+    120deg,
+    rgba(243, 204, 122, 0.26),
+    rgba(47, 125, 255, 0.32) 70%
+  );
+}
+
 .choice-btn:disabled {
   cursor: default;
   opacity: 0.55;
@@ -179,18 +189,28 @@ h1 {
   inset: 0;
   display: grid;
   align-content: center;
-  gap: 0.7rem;
+  gap: 0.85rem;
   opacity: 0;
   transform: translateY(8px);
   pointer-events: none;
 }
 
+.intermission-kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #b8c0d4;
+  font-weight: 500;
+}
+
 .intermission-text {
   margin: 0;
-  color: #edf1fa;
+  color: #e8ecf5;
   line-height: 1.75;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.2rem, 2.7vw, 1.72rem);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 400;
 }
 
 .fade-out {
@@ -205,6 +225,21 @@ h1 {
 
 #sceneImage {
   transition: opacity 1000ms ease, transform 1000ms ease;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(195, 200, 212, 0.45);
+  font-weight: 400;
+  pointer-events: none;
+  z-index: 2;
 }
 
 @media (max-width: 860px) {

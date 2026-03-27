@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luminous Editorial</title>
+    <title>Детектив дня: куда утекают деньги</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:wght@500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -18,24 +18,29 @@
     <main class="stage">
       <article id="sceneCard" class="editorial-card">
         <figure class="media-wrap">
-          <img id="sceneImage" src="images/slide-1.svg" alt="Scene visual" />
+          <img id="sceneImage" src="images/placeholder-hook.svg" alt="" />
         </figure>
 
         <section id="sceneContent" class="content scene-layer">
-          <p id="sceneKicker" class="kicker">Сцена I</p>
-          <h1 id="sceneTitle">Золотой час, первый шаг</h1>
+          <p id="sceneKicker" class="kicker">Крючок</p>
+          <h1 id="sceneTitle">Куда утекают твои деньги?</h1>
           <p id="sceneText" class="copy">
-            В архиве модного дома найдено расхождение в показаниях. Ваша команда выбирает
-            первую линию расследования.
+            Давай начистоту. Ты делаешь крутой продукт, ведешь проекты, но почему-то к вечеру
+            чувствуешь себя выжатым лимоном, а доход уперся в потолок. Предлагаю сыграть в
+            детектива. Мы пройдем по твоему обычному рабочему дню и найдем дыры, через которые
+            прямо сейчас утекают твои деньги и время.
           </p>
           <div id="choices" class="choices" aria-label="Варианты действий"></div>
         </section>
 
         <section id="intermission" class="content intermission-layer" aria-live="polite">
+          <p class="intermission-kicker">Следствие установило:</p>
           <p id="intermissionText" class="intermission-text"></p>
         </section>
       </article>
     </main>
+
+    <p class="site-footer">AI Research &amp; Engineering</p>
 
     <script src="script.js"></script>
   </body>
