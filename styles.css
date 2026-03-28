@@ -60,7 +60,8 @@ body.intermission-active {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  align-items: start;
+  /* Вертикальный центр строки: текст и картинка совпадают по середине */
+  align-items: center;
   padding: clamp(1.2rem, 3vw, 2.2rem);
   border: 1px solid rgba(243, 204, 122, 0.25);
   border-radius: 28px;
@@ -74,6 +75,7 @@ body.intermission-active {
 .media-wrap {
   margin: 0;
   width: 100%;
+  align-self: center;
   /* Одинаковая «рама» для всех сцен: финальный текст не растягивает превью */
   height: clamp(420px, 50vh, 540px);
   max-height: 540px;
@@ -104,7 +106,10 @@ body.intermission-active {
 .content {
   padding: 0.5rem 0.4rem;
   max-width: 38ch;
+  margin-inline: 0;
+  margin-right: auto;
   position: relative;
+  text-align: left;
 }
 
 .scene-layer {
@@ -170,6 +175,7 @@ h1 {
   padding: 1.05rem 1.25rem;
   font-size: 1.05rem;
   font-weight: 600;
+  text-align: center;
   border-color: rgba(243, 204, 122, 0.62);
   color: #fff6e2;
   background: linear-gradient(
@@ -291,9 +297,6 @@ h1 {
   transform: translateY(0);
 }
 
-#sceneImage {
-  transition: opacity 1000ms ease, transform 1000ms ease;
-}
 
 .site-footer {
   position: fixed;
@@ -314,16 +317,19 @@ h1 {
   .editorial-card {
     grid-template-columns: 1fr;
     min-height: auto;
+    align-items: stretch;
   }
 
   .media-wrap {
     height: min(320px, 52vw);
     max-height: none;
+    align-self: stretch;
   }
 
   .copy-column {
     justify-content: flex-start;
     min-height: 0;
+    align-self: stretch;
   }
 
   .content {

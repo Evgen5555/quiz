@@ -83,7 +83,7 @@ const scenes = [
     image: "images/scene4(a).jpeg",
     choices: [
       {
-        label: "⚡️ Завайбкодить свой бизнес",
+        label: "Завайбкодить свой бизнес",
         actionUrl: "#",
         isPrimary: true,
       },
