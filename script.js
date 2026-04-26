@@ -84,7 +84,7 @@ const scenes = [
     choices: [
       {
         label: "Завайбкодить свой бизнес",
-        actionUrl: "#",
+        actionUrl: "https://t.me/evgeniya5_5",
         isPrimary: true,
       },
     ],
