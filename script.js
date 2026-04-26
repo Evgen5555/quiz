@@ -4,7 +4,7 @@ const scenes = [
     title: "Куда утекают твои деньги?",
     text:
       "Давай начистоту. Ты делаешь крутой продукт, ведешь проекты, но почему-то к вечеру чувствуешь себя выжатым лимоном, а доход уперся в потолок. Предлагаю сыграть в детектива. Мы пройдем по твоему обычному рабочему дню и найдем дыры, через которые прямо сейчас утекают твои деньги и время.",
-    image: "images/scene.png",
+    image: "images/scene4.png",
     choices: [
       {
         label: "🔍 Найти мои деньги",
@@ -17,7 +17,7 @@ const scenes = [
     title: "Место преступления: Директ",
     text:
       "Среда, 14:00. В директ падает долгожданное сообщение: «А сколько стоит работа с вами? Можно подробности?». Твои действия?",
-    image: "images/scene1.png",
+    image: "images/images1-1.jpg",
     intermissionImage: "images/images1-1.jpg",
     choices: [
       {
@@ -41,8 +41,8 @@ const scenes = [
     kicker: "",
     title: "Место преступления: Пустой экран",
     text: "Пятница. Надо выложить пост и прогрев в канал. Ты открываешь пустой экран...",
-    image: "images/scene2.png",
-    intermissionImage: "images/images2-2.png",
+    image: "images/images2-2.jpg",
+    intermissionImage: "images/images2-2.jpg",
     choices: [
       {
         label: "Вымучиваю текст 3 часа, переписывая каждое слово",
@@ -60,7 +60,7 @@ const scenes = [
     kicker: "",
     title: "Место преступления: Иллюзия делегирования",
     text: "О чудо, клиент перевел деньги! Что происходит дальше? Как устроен онбординг?",
-    image: "images/scene3.png",
+    image: "images/images3.png",
     intermissionImage: "images/images3-3.jpeg",
     choices: [
       {
