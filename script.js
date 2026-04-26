@@ -4,7 +4,8 @@ const scenes = [
     title: "Куда утекают твои деньги?",
     text:
       "Давай начистоту. Ты делаешь крутой продукт, ведешь проекты, но почему-то к вечеру чувствуешь себя выжатым лимоном, а доход уперся в потолок. Предлагаю сыграть в детектива. Мы пройдем по твоему обычному рабочему дню и найдем дыры, через которые прямо сейчас утекают твои деньги и время.",
-    image: "images/scene.png",
+    image: "images/scene4.png",
+    fallbackImage: "images/placeholder-hook.svg",
     choices: [
       {
         label: "🔍 Найти мои деньги",
@@ -17,7 +18,8 @@ const scenes = [
     title: "Место преступления: Директ",
     text:
       "Среда, 14:00. В директ падает долгожданное сообщение: «А сколько стоит работа с вами? Можно подробности?». Твои действия?",
-    image: "images/scene1.png",
+    image: "images/images1-1.jpg",
+    fallbackImage: "images/placeholder-1.svg",
     intermissionImage: "images/images1-1.jpg",
     choices: [
       {
@@ -41,8 +43,9 @@ const scenes = [
     kicker: "",
     title: "Место преступления: Пустой экран",
     text: "Пятница. Надо выложить пост и прогрев в канал. Ты открываешь пустой экран...",
-    image: "images/scene2.png",
-    intermissionImage: "images/images2-2.png",
+    image: "images/images2-2.jpg",
+    fallbackImage: "images/placeholder-2.svg",
+    intermissionImage: "images/images2-2.jpg",
     choices: [
       {
         label: "Вымучиваю текст 3 часа, переписывая каждое слово",
@@ -60,7 +63,8 @@ const scenes = [
     kicker: "",
     title: "Место преступления: Иллюзия делегирования",
     text: "О чудо, клиент перевел деньги! Что происходит дальше? Как устроен онбординг?",
-    image: "images/scene3.png",
+    image: "images/images3.png",
+    fallbackImage: "images/placeholder-3.svg",
     intermissionImage: "images/images3-3.jpeg",
     choices: [
       {
@@ -81,10 +85,11 @@ const scenes = [
     text:
       "Твой диагноз — острая нехватка вайб-кодинга. Ты пытаешься быть человеком-оркестром там, где давно пора поставить умную систему. Вайб-кодинг — это когда ты общаешься со своим бизнесом на человеческом языке, а я собираю тебе под капотом экосистему из ИИ-агентов. Бот сам продает и выдает доступы, а нейросети генерируют контент в твоем авторском стиле. Я забираю рутину на себя и возвращаю тебе время на жизнь и масштабирование.",
     image: "images/scene4(a).jpeg",
+    fallbackImage: "images/placeholder-verdict.svg",
     choices: [
       {
         label: "Завайбкодить свой бизнес",
-        actionUrl: "#",
+        actionUrl: "https://t.me/evgeniya5_5",
         isPrimary: true,
       },
     ],
@@ -125,7 +130,14 @@ function renderChoices(scene) {
 function setScene(index) {
   const scene = scenes[index];
 
+  imageEl.onerror = null;
   imageEl.src = scene.image;
+  if (scene.fallbackImage) {
+    imageEl.onerror = () => {
+      imageEl.onerror = null;
+      imageEl.src = scene.fallbackImage;
+    };
+  }
   imageEl.alt = scene.title;
   kickerEl.textContent = scene.kicker;
   titleEl.textContent = scene.title;
@@ -178,6 +190,9 @@ function handleChoice(choice) {
   setTimeout(() => {
     const scene = scenes[current];
     if (scene.intermissionImage) {
+      intermissionBgEl.onerror = () => {
+        intermissionBgEl.removeAttribute("src");
+      };
       intermissionBgEl.src = scene.intermissionImage;
     }
     intermissionTextEl.textContent = choice.consequence;
